@@ -1,4 +1,9 @@
-import React, { Component } from "react";
+import React from 'react';
+import Panel from './Panel';
+
+const dashboardClasses = classnames("dashboard", {
+  "dashboard--focused": this.state.focused
+ });
 
 const data = [
   {
@@ -18,19 +23,28 @@ const data = [
   },
   {
     id: 4,
-    label: "User with the least uploads"",
-    value: “Lukas Souza”
+    label: "User with the least uploads",
+    value: "Lukas Souza"
   }
 ];
 
-import classnames from "classnames";
+const Dashboard = () => {
+  return (
+    <main>
+      Panels
+    </main>
+  );
+};
 
-class Dashboard extends Component {
-  render() {
-    const dashboardClasses = classnames("dashboard");
-
-    return <main className={dashboardClasses} />;
-  }
-}
+const panels = (this.state.focused ? data.filter(panel => this.state.focused === panel.id) : data)
+   .map(panel => (
+    <Panel
+     key={panel.id}
+     id={panel.id}
+     label={panel.label}
+     value={panel.value}
+     onSelect={this.selectPanel}
+    />
+   ));
 
 export default Dashboard;
