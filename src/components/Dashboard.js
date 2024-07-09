@@ -5,6 +5,13 @@ const dashboardClasses = classnames("dashboard", {
   "dashboard--focused": this.state.focused
  });
 
+ selectPanel = (id) => {
+  this.setState(prev => ({
+    focused: prev.focused !== null ? null : id
+  }))
+};
+
+
 const data = [
   {
     id: 1,
